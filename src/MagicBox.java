@@ -29,7 +29,8 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 * 
 	 * 3. backgroundImage.getRGB(keyEvent.getX(), keyEvent.getY()) will give you the color of the current pixel.
 	 */
-
+	MediaPalace med = new MediaPalace();
+	JFrame frame = new JFrame("The Magic Box contains many secrets...");
 	BufferedImage backgroundImage;
 
 	public static void main(String[] args) throws Exception {
@@ -50,8 +51,9 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	}
 
 	private void createUI() {
-		JFrame frame = new JFrame("The Magic Box contains many secrets...");
+		
 		frame.add(this);
+		frame.addMouseListener(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,14 +76,22 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stube.getsource
+		if (e.getX() < 203 && e.getX() > 187 && e.getY() > 528 && e.getY() < 557) {
+			med.playMusicOnComputer("oof.mp3");
+		}else if (e.getX() > 0 && e.getX() < 100 && e.getY() > 0 && e.getY() < 100) {
+			frame.removeAll();
+			frame.add(med.loadImageFromWithinProject("smile.jpg"));
+			frame.pack();
+		}
+		
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(e.getX());
 	}
 
 	@Override
