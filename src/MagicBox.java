@@ -5,6 +5,7 @@
 
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -53,6 +54,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	private void createUI() {
 		
 		frame.add(this);
+		frame.setLayout(new FlowLayout());
 		frame.addMouseListener(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
 		frame.pack();
@@ -80,7 +82,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		if (e.getX() < 203 && e.getX() > 187 && e.getY() > 528 && e.getY() < 557) {
 			med.playMusicOnComputer("oof.mp3");
 		}else if (e.getX() > 0 && e.getX() < 100 && e.getY() > 0 && e.getY() < 100) {
-			frame.removeAll();
+			
 			frame.add(med.loadImageFromWithinProject("smile.jpg"));
 			frame.pack();
 		}
@@ -91,7 +93,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(e.getX());
+	
 	}
 
 	@Override
